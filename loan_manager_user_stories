@@ -1,6 +1,6 @@
 | As a/an |      I should be able to…      |          So that…         |
 |---------|--------------------------------|---------------------------|
-|   user  | create new profile by entering | I can log i       n       |
+|   user  | create new profile by entering | I can log in              |
 |         |a name, a password and an e-mail|                           |
 |---------|--------------------------------|---------------------------|
 |   user  | log in by entering an e-mail   | I can use the application |
