@@ -47,7 +47,7 @@ public class Balance extends BaseEntity{
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    
+
     public User getLender() {
         return lender;
     }
