@@ -2,10 +2,11 @@ package model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "users")
 public class User extends BaseEntity {
 
     @Column(name = "name")
@@ -27,6 +28,24 @@ public class User extends BaseEntity {
     @Column(name = "creation_date")
     @NotEmpty
     protected long creationDate;
+
+    public User() {
+    }
+
+    @ManyToMany
+    @JoinTable(name="user_group",
+            joinColumns = @JoinColumn(name="user_id", referencedColumnName="id"),
+            inverseJoinColumns = @JoinColumn(name="group_id", referencedColumnName="id")
+    )
+    private Set<Group> groups;
+
+    public Set<Group> getBooks() {
+        return groups;
+    }
+
+    public void setBooks(Set<Group> groups) {
+        this.groups = groups;
+    }
 
     public String getName() {
         return this.name;
