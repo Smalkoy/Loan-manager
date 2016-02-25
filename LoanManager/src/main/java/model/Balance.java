@@ -71,5 +71,4 @@ public class Balance extends BaseEntity{
     public void setGroup(Group group) {
         this.group = group;
     }
-
 }
