@@ -32,10 +32,26 @@ public class User extends BaseEntity {
     public User() {
     }
 
+    public User(String name, String eMail, String password, Integer creationDate) {
+        this.name = name;
+        this.eMail = name;
+        this.password = password;
+        this.varifiedEMail = false;
+        this.creationDate = creationDate;
+    }
+
+    public User(String name, String eMail, String password, boolean varifiedEMail, Integer creationDate) {
+        this.name = name;
+        this.eMail = name;
+        this.password = password;
+        this.varifiedEMail = varifiedEMail;
+        this.creationDate = creationDate;
+    }
+
     @ManyToMany
-    @JoinTable(name="user_group",
-            joinColumns = @JoinColumn(name="user_id", referencedColumnName="id"),
-            inverseJoinColumns = @JoinColumn(name="group_id", referencedColumnName="id")
+    @JoinTable(name = "user_group",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id")
     )
     private Set<Group> groups;
 
@@ -54,6 +70,7 @@ public class User extends BaseEntity {
     public void setname(String name) {
         this.name = name;
     }
+
     public String geteMail() {
         return eMail;
     }
@@ -85,6 +102,4 @@ public class User extends BaseEntity {
     public void setCreationDate(long creationDate) {
         this.creationDate = creationDate;
     }
-
-
 }
