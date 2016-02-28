@@ -1,9 +1,10 @@
-package dao;
+package service;
 
 import model.User;
+
 import java.util.Set;
 
-public interface UserDAO {
+public interface UserService {
 
     void save(User user);
 
