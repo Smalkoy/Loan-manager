@@ -21,9 +21,9 @@ public class User extends BaseEntity {
     @NotEmpty
     protected String password;
 
-    @Column(name = "varified_e-mail")
+    @Column(name = "verified_e-mail")
     @NotEmpty
-    protected boolean varifiedEMail;
+    protected boolean verifiedEMail;
 
     @Column(name = "creation_date")
     @NotEmpty
@@ -36,7 +36,7 @@ public class User extends BaseEntity {
         this.name = name;
         this.eMail = name;
         this.password = password;
-        this.varifiedEMail = false;
+        this.verifiedEMail = false;
         this.creationDate = creationDate;
     }
 
@@ -44,7 +44,7 @@ public class User extends BaseEntity {
         this.name = name;
         this.eMail = name;
         this.password = password;
-        this.varifiedEMail = varifiedEMail;
+        this.verifiedEMail = varifiedEMail;
         this.creationDate = creationDate;
     }
 
@@ -87,12 +87,12 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public boolean isVarifiedEMail() {
-        return varifiedEMail;
+    public boolean isVerifiedEMail() {
+        return verifiedEMail;
     }
 
-    public void setVarifiedEMail(boolean varifiedEMail) {
-        this.varifiedEMail = varifiedEMail;
+    public void setVerifiedEMail(boolean varifiedEMail) {
+        this.verifiedEMail = varifiedEMail;
     }
 
     public long getCreationDate() {
