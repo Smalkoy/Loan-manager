@@ -1,27 +1,37 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "invites")
+@Table(name = "INVITES")
 public class Invite extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "inviter_id")
-    protected User inviter;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "INVITE_ID")
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "target_id")
-    protected User target;
+    @JoinColumn(name = "INVITER_ID")
+    private User inviter;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
-    protected Group group;
+    @JoinColumn(name = "TARGET_ID")
+    private User target;
+
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
 
     public Invite() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getInviter() {
