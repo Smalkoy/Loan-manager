@@ -3,7 +3,7 @@ package dao;
 import model.User;
 import java.util.Set;
 
-public interface UserDAO {
+public interface UserDao {
 
     void save(User user);
 

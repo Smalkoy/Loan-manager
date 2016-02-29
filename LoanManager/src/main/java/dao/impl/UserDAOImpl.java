@@ -1,6 +1,6 @@
-package dao.hibernate;
+package dao.impl;
 
-import dao.UserDAO;
+import dao.UserDao;
 import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
-@Repository("userDAO")
-@Transactional
-public class UserDAOImpl implements UserDAO {
+@Repository
+public class UserDAOImpl  implements UserDao {
 
     @Autowired
     SessionFactory sessionFactory;

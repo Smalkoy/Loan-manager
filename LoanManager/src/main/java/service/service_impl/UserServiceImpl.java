@@ -1,6 +1,6 @@
 package service.service_impl;
 
-import dao.UserDAO;
+import dao.UserDao;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ import java.util.Set;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    UserDAO userDAO;
+    UserDao userDAO;
 
-    public void setUserDAO(UserDAO userDAO) {
+    public void setUserDAO(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 
