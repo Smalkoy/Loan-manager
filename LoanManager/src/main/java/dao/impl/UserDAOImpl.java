@@ -24,7 +24,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
     @Override
     public User findById(int userId) {
-        return (User) sessionFactory.getCurrentSession().get(User.class, userId);
+        return sessionFactory.getCurrentSession().get(User.class, userId);
     }
 
 
