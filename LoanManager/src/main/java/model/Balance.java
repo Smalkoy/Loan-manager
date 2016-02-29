@@ -6,38 +6,31 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "balance")
+@Table(name = "BALANCE")
 public class Balance extends BaseEntity{
 
-    @Column(name = "name")
-    @NotEmpty
-    protected String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BALANCE_ID")
+    private int id;
 
-    @Column(name = "amount")
+    @Column(name = "AMOUNT")
     @NotNull
-    protected double amount;
+    private double amount;
 
     @ManyToOne
-    @JoinColumn(name = "lender_id")
-    protected User lender;
+    @JoinColumn(name = "LENDER_ID")
+    private User lender;
 
     @ManyToOne
-    @JoinColumn(name = "borrower_id")
-    protected User borrower;
+    @JoinColumn(name = "BORROWER_ID")
+    private User borrower;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
-    protected Group group;
+    @JoinColumn(name = "GROUP_ID")
+    private Group group;
 
     public Balance() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getAmount() {
