@@ -8,14 +8,20 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
-@Repository("UserDAO")
+@Repository("userDAO")
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     @Autowired
     SessionFactory sessionFactory;
+
+    @Autowired
+    public UserDAOImpl() {
+    }
 
     @Override
     public void save(User user) {

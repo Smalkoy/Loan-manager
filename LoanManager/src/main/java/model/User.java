@@ -63,7 +63,7 @@ public class User extends BaseEntity {
         this.name = name;
     }
 
-    public String geteMail() {
+    public String getEMail() {
         return eMail;
     }
 
