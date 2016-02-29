@@ -1,65 +1,57 @@
 package model;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 public class User extends BaseEntity {
 
-    @Column(name = "name")
-    @NotEmpty
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_NAME")
+    private int id;
+
+    @Column(name = "NAME", length = 25, nullable = false)
+    @NotBlank(message = "Name should not be empty")
     protected String name;
 
-    @Column(name = "e-mail")
+    @Column(name = "PASSWORD", unique = false, nullable = false, length = 50)
+    @NotBlank(message = "Enter some password")
+    protected String password;
+
+    @Column(name = "E_MAIL", length = 255, nullable = false)
     @NotEmpty
     protected String eMail;
 
-    @Column(name = "password")
-    @NotEmpty
-    protected String password;
+    @Column(name = "E_MAIL_IS_VERIFIED")
+    protected boolean isEMailVerified;
 
-    @Column(name = "verified_e-mail")
-    @NotEmpty
-    protected boolean verifiedEMail;
-
-    @Column(name = "creation_date")
-    @NotEmpty
-    protected long creationDate;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "CREATION_DATE")
+    @NotNull(message = "Registration date should be not null")
+    protected Date creationDate;
 
     public User() {
     }
 
-    public User(String name, String eMail, String password, Integer creationDate) {
-        this.name = name;
-        this.eMail = name;
-        this.password = password;
-        this.verifiedEMail = false;
-        this.creationDate = creationDate;
-    }
-
-    public User(String name, String eMail, String password, boolean varifiedEMail, Integer creationDate) {
-        this.name = name;
-        this.eMail = name;
-        this.password = password;
-        this.verifiedEMail = varifiedEMail;
-        this.creationDate = creationDate;
-    }
-
     @ManyToMany
-    @JoinTable(name = "user_group",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id")
+    @JoinTable(name = "USER_GROUP",
+            joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_D")
     )
     private Set<Group> groups;
 
-    public Set<Group> getBooks() {
+    public Set<Group> getGroups() {
         return groups;
     }
 
-    public void setBooks(Set<Group> groups) {
+    public void setGroups(Set<Group> groups) {
         this.groups = groups;
     }
 
@@ -67,7 +59,7 @@ public class User extends BaseEntity {
         return this.name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -75,7 +67,7 @@ public class User extends BaseEntity {
         return eMail;
     }
 
-    public void seteMail(String eMail) {
+    public void setEMail(String eMail) {
         this.eMail = eMail;
     }
 
@@ -87,19 +79,19 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public boolean isVerifiedEMail() {
-        return verifiedEMail;
+    public boolean isEMailVerified() {
+        return isEMailVerified;
     }
 
-    public void setVerifiedEMail(boolean varifiedEMail) {
-        this.verifiedEMail = varifiedEMail;
+    public void setEMailVerified(boolean isEMailVerified) {
+        this.isEMailVerified = isEMailVerified;
     }
 
-    public long getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(long creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 }
