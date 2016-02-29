@@ -7,9 +7,7 @@ public interface UserDao {
 
     void save(User user);
 
-    Set<User> findAll();
-
-    User findById(Integer userID);
+    User findById(int userId);
 
     User findByName(String name);
 
