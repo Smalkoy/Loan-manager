@@ -24,8 +24,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
     @Override
     public User findById(int userId) {
-        User user = (User) sessionFactory.getCurrentSession().get(User.class, userId);
-        return user;
+        return (User) sessionFactory.getCurrentSession().get(User.class, userId);
     }
 
 
@@ -37,7 +36,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
     @Override
     public User findByEMail(String email) {
-       return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
-               .add(Restrictions.eq("E_MAIL", email)).uniqueResult();
+        return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
+                .add(Restrictions.eq("E_MAIL", email)).uniqueResult();
     }
 }
