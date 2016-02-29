@@ -6,12 +6,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "GROUPS")
 public class Group extends BaseEntity{
 
-    @Column(name = "name")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "GROUP_ID")
+    private int id;
+
+    @Column(name = "NAME")
     @NotEmpty
-    protected String name;
+    private String name;
 
     public Group() {
     }
