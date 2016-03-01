@@ -2,7 +2,6 @@ package dao.impl;
 
 import dao.BalanceDao;
 import model.Balance;
-import model.Invite;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
