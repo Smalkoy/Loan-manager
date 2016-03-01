@@ -36,7 +36,7 @@ public class User extends BaseEntity {
     @ManyToMany
     @JoinTable(name = "USER_GROUP",
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_D")
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_ID")
     )
     private Set<Group> groups;
 

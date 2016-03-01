@@ -21,7 +21,11 @@ public class Group extends BaseEntity{
     public Group() {
     }
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "groups")
+    @ManyToMany
+    @JoinTable(name = "USER_GROUP",
+            joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_ID"),
+            inverseJoinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    )
     private Set<User> users;
 
     public Set<User> getUsers() {
