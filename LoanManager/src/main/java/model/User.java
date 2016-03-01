@@ -4,8 +4,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -31,11 +29,6 @@ public class User extends BaseEntity {
 
     @Column(name = "E_MAIL_IS_VERIFIED")
     protected boolean isEMailVerified;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATION_DATE")
-    @NotNull(message = "Registration date should be not null")
-    protected Date creationDate;
 
     public User() {
     }
@@ -85,13 +78,5 @@ public class User extends BaseEntity {
 
     public void setEMailVerified(boolean isEMailVerified) {
         this.isEMailVerified = isEMailVerified;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 }
