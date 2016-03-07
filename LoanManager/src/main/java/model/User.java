@@ -7,12 +7,12 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USER")
 public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_ID")
     private int id;
 
     @Column(name = "NAME", length = 25, nullable = false)

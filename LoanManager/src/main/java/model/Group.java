@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "GROUPS")
+@Table(name = "GROUP")
 public class Group extends BaseEntity{
 
     @Id
