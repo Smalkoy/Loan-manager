@@ -16,7 +16,7 @@ public class Balance extends BaseEntity{
 
     @Column(name = "AMOUNT")
     @NotNull
-    private double amount;
+    private float amount;
 
     @ManyToOne
     @JoinColumn(name = "LENDER_ID")
@@ -33,11 +33,11 @@ public class Balance extends BaseEntity{
     public Balance() {
     }
 
-    public double getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
