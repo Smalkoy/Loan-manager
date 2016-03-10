@@ -5,17 +5,15 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USER")
 public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_ID")
     private int id;
 
     @Column(name = "NAME", length = 25, nullable = false)
@@ -33,18 +31,13 @@ public class User extends BaseEntity {
     @Column(name = "E_MAIL_IS_VERIFIED")
     protected boolean isEMailVerified;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATION_DATE")
-    @NotNull(message = "Registration date should be not null")
-    protected Date creationDate;
-
     public User() {
     }
 
     @ManyToMany
     @JoinTable(name = "USER_GROUP",
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_D")
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "GROUP_ID")
     )
     private Set<Group> groups;
 
@@ -86,13 +79,5 @@ public class User extends BaseEntity {
 
     public void setEMailVerified(boolean isEMailVerified) {
         this.isEMailVerified = isEMailVerified;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 }

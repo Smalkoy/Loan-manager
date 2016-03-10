@@ -3,4 +3,6 @@
 /.idea/vcs.xml
 LoanManager.iml
 /lib
+/target
+
 

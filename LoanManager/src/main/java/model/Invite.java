@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "INVITES")
+@Table(name = "INVITE")
 public class Invite extends BaseEntity {
 
     @Id
